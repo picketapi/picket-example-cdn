@@ -1,35 +1,35 @@
-<script src="https://unpkg.com/@picketapi/picket-js@0.0.46/dist/global.js"></script>
+<script src="https://unpkg.com/@picketapi/picket-js/dist/global.js"></script>
 
-<p id="welcomeText">Welcome </p>
+<p id="welcomeText">Welcome</p>
 <button id="loginButton" onclick="login()">Login</button>
 
 <style>
-    #loginButton {
-        font-weight: bold;
-        border-radius: 100px;
-        background-color: #0066ff;
-        color: white;
-        border-style: none;
-        padding: 10px;
-        min-width: 120px;
-    }
+  #loginButton {
+    font-weight: bold;
+    border-radius: 100px;
+    background-color: #0066ff;
+    color: white;
+    border-style: none;
+    padding: 10px;
+    min-width: 120px;
+  }
 </style>
 
 <script>
-        const picket = new window.Picket('YOUR_PUBLISHABLE_KEY_HERE');
+  const picket = new window.Picket("YOUR_PUBLISHABLE_KEY_HERE");
 
-        async function login() {
-            try{
-                const { user } = await picket.login();
-        
-                console.log( user );
-                
-                document.getElementById('welcomeText').innerHTML = "Welcome " + user.displayAddress;
-                window.location = "/gated-content-simple.html";
+  async function login() {
+    try {
+      const { user } = await picket.login();
 
-            } catch(e){
-                console.log(e);
-            }
-        }
+      console.log(user);
 
+      document.getElementById("welcomeText").innerHTML =
+        "Welcome " + user.displayAddress;
+      window.location = "/gated-content-simple.html";
+    } catch (e) {
+      console.log(e);
+    }
+  }
 </script>
+

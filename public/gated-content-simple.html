@@ -1,21 +1,21 @@
-<script src="https://unpkg.com/@picketapi/picket-js@0.0.46/dist/global.js"></script>
+<script src="https://unpkg.com/@picketapi/picket-js/dist/global.js"></script>
 
 <script>
-    const picket = new window.Picket('YOUR_PUBLISHABLE_KEY_HERE');
+  const picket = new window.Picket("YOUR_PUBLISHABLE_KEY_HERE");
 
-    getUser();
+  getUser();
 
-    async function getUser() {
-        const authState = await picket.authState();
+  async function getUser() {
+    const authState = await picket.authState();
 
-        if(!authState){
-            window.location.replace("/js-cdn-example.html");
-        }
-
-        console.log("user: ",  authState.user)
-        console.log("accessToken: ",  authState.accessToken)
+    if (!authState) {
+      window.location.replace("/js-cdn-example.html");
     }
 
+    console.log("user: ", authState.user);
+    console.log("accessToken: ", authState.accessToken);
+  }
 </script>
 
 <p id="welcomeText">This page is for authenticated wallets only.</p>
+
