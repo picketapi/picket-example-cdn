@@ -1,7 +1,7 @@
 <script src="https://unpkg.com/@picketapi/picket-js@0.0.46/dist/global.js"></script>
 
 <script>
-    const picket = new window.Picket('YOUR_PUBLISHABLE_KEY_HERE');
+    const picket = new window.Picket('pk_09aa35954221d449cafc421c4f755a29');
 
     getUser();
 
@@ -16,6 +16,28 @@
         console.log("accessToken: ",  authState.accessToken)
     }
 
+    async function logout() {
+            try{
+                await picket.logout();
+                window.location.replace("/js-cdn-example.html");
+            } catch(e){
+                console.log(e);
+            }
+        }
+
 </script>
 
 <p id="welcomeText">This page is for authenticated wallets only.</p>
+<button id="logoutButton" onclick="logout()">Logout</button>
+
+<style>
+    #logoutButton {
+        font-weight: bold;
+        border-radius: 100px;
+        background-color: #D3D3D3;
+        color: black;
+        border-style: none;
+        padding: 10px;
+        min-width: 120px;
+    }
+</style>
